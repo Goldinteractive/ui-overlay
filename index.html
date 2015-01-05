@@ -1,1 +1,74 @@
-My Page
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="bower_components/vex/css/vex.css" />
+		<link rel="stylesheet" href="bower_components/gi-ui-buttons/style.css" />
+		<link rel="stylesheet" href="bower_components/gi-ui-textfield/style.css" />
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="//goldinteractive.github.io/ui-shared-assets/style.css">
+	</head>
+	<body>
+		<h1>Overlay</h1>
+		<a target="_blank" href="http://github.hubspot.com/vex/">Vex documentation</a> <br />  <br />
+
+		<a href="#content" data-overlay-type="normal" class="ui-overlay-trigger">Normal</a>
+		<a href="http://lorempixel.com/500/500/cats" data-overlay-type="image" class="ui-overlay-trigger">Image</a>
+		<a href="!#" data-message="I am a confirm message" data-overlay-type="confirm" class="ui-overlay-trigger">Confirm</a>
+		<a href="!#" data-message="I am an alert message" data-overlay-type="alert" class="ui-overlay-trigger">Alert</a>
+		<a href="!#" data-message="I am a prompt message" data-placeholder="I the prompt placeholder" data-overlay-type="prompt" class="ui-overlay-trigger">Prompt</a>
+
+		<div style="display:none" id="content">
+			<p>I am a nice hidden content</p>
+		</div>
+
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/vex/js/vex.combined.min.js"></script>
+		<script>
+
+			vex.defaultOptions.className = 'gi-ui-overlay';
+			vex.dialog.buttons.YES.className = 'ui-btn primary';
+			vex.dialog.buttons.NO.className = 'ui-btn';
+
+			$('a.ui-overlay-trigger').on('click', function(e) {
+
+				e.preventDefault();
+
+				var type = $(this).data('overlay-type');
+
+				switch(type) {
+					case 'normal':
+						vex.open({content: $($(this).attr('href')).html() });
+					break;
+					case 'image':
+						vex.open({content: '<img width="100%" src="' + $(this).attr('href') + '" alt="" />'});
+					break;
+					case 'confirm':
+						vex.dialog.confirm({
+							message: $(this).data('message'),
+							callback: function(value) {
+							   return console.log(value);
+							}
+						});
+					break;
+					case 'alert':
+						vex.dialog.alert({
+							message: $(this).data('message')
+						});
+					break;
+					case 'prompt':
+						vex.dialog.prompt({
+							message: $(this).data('message'),
+						    placeholder: $(this).data('placeholder'),
+							callback: function(value) {
+								return console.log(value);
+							},
+						});
+					break;
+					default:
+						vex.open({content: '<div>Content</div>'});
+				}
+			});
+
+		</script>
+	</body>
+</html>
