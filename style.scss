@@ -3,12 +3,11 @@
 .vex.gi-ui-overlay {
 	padding-top: 160px;
 	padding-bottom: 160px;
+
 	&.vex-closing .vex-content {
 		@include animation(vex-flyout 0.5s);
 	}
-	.vex-content {
-		@include animation(vex-flyin 0.5s);
-	}
+
 	.vex-content {
 		background: #f0f0f0;
 		padding: 1em;
@@ -18,12 +17,15 @@
 		width: 450px;
 		font-size: 1.1em;
 		line-height: 1.5em;
+		@include animation(vex-flyin 0.5s);
 	}
+
 	.vex-close {
 		position: absolute;
 		top: 0;
 		right: 0;
 		cursor: pointer;
+
 		&:before {
 			position: absolute;
 			content: "\00D7";
@@ -36,16 +38,19 @@
 			top: 3px;
 			right: 3px;
 			color: #111;
-			background: rgba(white,0.5);
+			background: rgba(white, 0.5);
 			@include border-radius(50%);
 		}
 	}
+
 	.vex-dialog-form {
 		.vex-dialog-message {
 			margin-bottom: 0.5em;
 		}
+
 		.vex-dialog-input {
-			width:100%;
+			width: 100%;
+
 			input {
 				background: #fff;
 				width: 100%;
@@ -56,10 +61,12 @@
 				margin: 0 0 1em;
 			}
 		}
+
 		.vex-dialog-buttons {
 			@include pie-clearfix;
 		}
 	}
+
 	.vex-dialog-button {
 		border: 0;
 		float: right;
@@ -70,13 +77,16 @@
 		font-size: 0.8em;
 		line-height: 1em;
 		padding: 0.75em 2em;
+
 		&.vex-last {
 			margin-left: 0;
 		}
 	}
+
 	&.vex-dialog-button-primary {
 		color: white;
 	}
+
 	&.vex-dialog-button-secondary {
 		background: #e0e0e0;
 		color: #777777;
@@ -92,19 +102,17 @@
 	bottom: auto;
 }
 
-
-
 @include keyframes("vex-flyin") {
 	0% {
 		opacity: 0;
 		@include transform(translateY(-40px));
 	}
+
 	100% {
 		opacity: 1;
 		@include transform(translateY(0));
 	}
 }
-
 
 
 @include keyframes("vex-flyout") {
@@ -112,11 +120,9 @@
 		opacity: 1;
 		@include transform(translateY(0));
 	}
+
 	100% {
 		opacity: 0;
 		@include transform(translateY(-40px));
 	}
 }
-
-
-
