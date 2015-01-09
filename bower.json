@@ -15,8 +15,14 @@
   "dependencies": {
     "vex": "~2.2.1",
     "jquery": "~2.1.3",
+<<<<<<< HEAD
     "gi-ui-buttons": "~0.1.1",
     "gi-ui-textfield": "*"
+=======
+    "gi-ui-buttons": "~0.1.0",
+    "gi-ui-textfield": "*",
+    "gi-scss-mixins": "~0.2.0"
+>>>>>>> master
   },
   "resolutions": {
     "gi-ui-buttons": "master"
