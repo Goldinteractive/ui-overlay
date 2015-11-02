@@ -3,7 +3,7 @@
 	padding-bottom: 160px;
 
 	&.vex-closing .vex-content {
-		@include animation(vex-flyout 0.5s);
+		animation: vex-flyout 0.5s;
 	}
 
 	.vex-content {
@@ -15,7 +15,7 @@
 		width: 450px;
 		font-size: 1.1em;
 		line-height: 1.5em;
-		@include animation(vex-flyin 0.5s);
+		animation: vex-flyin 0.5s;
 	}
 
 	.vex-close {
@@ -37,7 +37,7 @@
 			right: 3px;
 			color: #111;
 			background: rgba(white, 0.5);
-			@include border-radius(50%);
+			border-radius: 50%;
 		}
 	}
 
@@ -61,7 +61,8 @@
 		}
 
 		.vex-dialog-buttons {
-			@include pie-clearfix;
+			overflow: hidden;
+			clear: both;
 		}
 	}
 
@@ -92,7 +93,7 @@
 }
 
 .vex-loading-spinner.vex-theme-default {
-	@include box-shadow(0 0 0 0.5em #f0f0f0, 0 0 1px 0.5em rgba(0, 0, 0, 0.3));
+	box-shadow: 0 0 0 0.5em #f0f0f0, 0 0 1px 0.5em rgba(0, 0, 0, 0.3);
 	background: #f0f0f0;
 	border: 0.2em solid transparent;
 	border-top-color: #bbbbbb;
@@ -100,27 +101,27 @@
 	bottom: auto;
 }
 
-@include keyframes("vex-flyin") {
+@keyframes vex-flyin {
 	0% {
 		opacity: 0;
-		@include transform(translateY(-40px));
+		transform: translateY(-40px);
 	}
 
 	100% {
 		opacity: 1;
-		@include transform(translateY(0));
+		transform: translateY(0);
 	}
 }
 
 
-@include keyframes("vex-flyout") {
+@keyframes vex-flyout {
 	0% {
 		opacity: 1;
-		@include transform(translateY(0));
+		transform: translateY(0);
 	}
 
 	100% {
 		opacity: 0;
-		@include transform(translateY(-40px));
+		transform: translateY(-40px);
 	}
 }

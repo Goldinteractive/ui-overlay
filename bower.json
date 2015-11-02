@@ -13,13 +13,10 @@
     "tests"
   ],
   "dependencies": {
-    "vex": "~2.2.1",
+    "vex": "~2.3.2",
     "jquery": "~2.1.3",
-    "gi-ui-buttons": "~0.1.0",
+    "gi-ui-buttons": "~0.3.0",
     "gi-ui-textfield": "*",
-    "gi-scss-mixins": "~0.2.0"
-  },
-  "resolutions": {
-    "gi-ui-buttons": "master"
+    "gi-scss-mixins": "~0.3.0"
   }
 }
